@@ -1,0 +1,80 @@
+:root {
+  --clr--dark: #222;
+  --clr-light: #f7f7f7;
+  --text-clr: #363f47;
+
+  --h1-size: 39px;
+  --h2-size: 33px;
+  --h3-size: 27px;
+  --h4-size: 23px;
+  --p-size: 19px;
+  --small-p-size: 16px;
+
+  --std-radius: 1rem;
+  --std-section-padding: 9rem 5rem 8rem 5rem;
+  --border-bottom-light: 1px solid rgb(213, 213, 213);
+  --border-bottom-dark: 1px solid rgb(44, 44, 44);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-clr);
+}
+
+h1 {
+  font-size: var(--h1-size);
+}
+h2 {
+  font-size: var(--h2-size);
+}
+h3 {
+  font-size: var(--h3-size);
+}
+h4 {
+  font-size: var(--h4-size);
+}
+
+a {
+  color: var(--text-clr);
+  text-decoration: none;
+}
+
+/* header -> nav */
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 10rem;
+}
+
+.nav__list {
+  display: flex;
+}
+
+.logo {
+  color: crimson;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: var(--h3-size);
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.logo,
+.nav__item {
+  margin: 0 30px;
+  height: 85px;
+
+  display: flex;
+  align-items: center;
+}
+
+/* header -> hero */
