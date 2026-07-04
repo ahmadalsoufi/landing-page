@@ -37,7 +37,6 @@ const stickyNav = function () {
         nav.classList.add("nav--sticky");
         return;
       }
-      console.log(entries);
 
       nav.classList.remove("nav--sticky");
     });
@@ -64,14 +63,14 @@ const dynamicCount = function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         numbersCount.forEach((number) => {
-          const numberCount = +number.textContent;
+          const numberCount = number.dataset.count;
           number.textContent = 0;
 
           const count = setInterval(() => {
-            if (+number.textContent > 500) {
-              number.textContent = +number.textContent + 6;
+            if (number.dataset.count > 500) {
+              number.textContent = +number.textContent + 5;
             } else {
-              number.textContent = +number.textContent + 2;
+              number.textContent = +number.textContent + 3;
             }
 
             if (+number.textContent >= numberCount) {
@@ -96,9 +95,38 @@ const dynamicCount = function () {
 };
 
 ///////////////////////////////////////////////////////////////
+// 4. lazy loading
+///////////////////////////////////////////////////////////////
+
+const lazyLoading = function () {
+  const lazyImgs = document.querySelectorAll(".lazy");
+
+  const lazyCallback = function (entries, observer) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.src = entry.target.dataset.src;
+
+      entry.target.addEventListener("load", function () {
+        entry.target.classList.remove("lazy");
+      });
+    });
+  };
+
+  const lazyObj = {
+    root: null,
+    threshold: 0,
+    rootMargin: "200px",
+  };
+  const lazyObserver = new IntersectionObserver(lazyCallback, lazyObj);
+  lazyImgs.forEach((img) => lazyObserver.observe(img));
+};
+
+///////////////////////////////////////////////////////////////
 // --- application of features
 ///////////////////////////////////////////////////////////////
 
 viewUponScrolling();
 stickyNav();
 dynamicCount();
+lazyLoading();
