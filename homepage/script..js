@@ -53,8 +53,52 @@ const stickyNav = function () {
 };
 
 ///////////////////////////////////////////////////////////////
+// 3. dynamic count
+///////////////////////////////////////////////////////////////
+
+const dynamicCount = function () {
+  const numbersCount = document.querySelectorAll(".numbers__count");
+  const numbersContainer = document.querySelector(".numbers");
+
+  const numbersCallback = function (entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        numbersCount.forEach((number) => {
+          const numberCount = +number.textContent;
+          number.textContent = 0;
+
+          const count = setInterval(() => {
+            if (+number.textContent > 500) {
+              number.textContent = +number.textContent + 6;
+            } else {
+              number.textContent = +number.textContent + 2;
+            }
+
+            if (+number.textContent >= numberCount) {
+              clearInterval(count);
+              number.textContent = number.dataset.count;
+            }
+          }, 1);
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const numbersObj = {
+    root: null,
+    threshold: 0,
+  };
+
+  const numbersObserver = new IntersectionObserver(numbersCallback, numbersObj);
+  numbersObserver.observe(numbersContainer);
+};
+
+///////////////////////////////////////////////////////////////
 // --- application of features
 ///////////////////////////////////////////////////////////////
 
 viewUponScrolling();
 stickyNav();
+dynamicCount();
