@@ -1,10 +1,11 @@
 :root {
-  --primary-clr: #2c9068;
-  --secondary-clr: #447bc4;
+  --primary-clr: #485b46;
+  --secondary-clr: #ccbd77;
+  /* ---clr: #a14752; */
 
   --clr--dark: #222;
   --clr-light: #f7f7f7;
-  --text-clr: #3a4753;
+  --text-clr: #3a4452;
 
   --h1-size: 39px;
   --h2-size: 33px;
@@ -59,7 +60,7 @@ a {
 }
 
 .section__content {
-  max-width: 55rem;
+  max-width: 43rem;
 
   margin: 0 auto;
   margin-bottom: 10rem;
@@ -293,4 +294,33 @@ a {
   text-align: center;
   font-size: var(--p-size);
   line-height: 1.5;
+}
+
+/* 6. contact  */
+
+.contact {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contact__btn {
+  background-color: var(--primary-clr);
+  color: var(--clr-light);
+  font-size: var(--h2-size);
+  font-weight: 500;
+  border: 0;
+  border-radius: var(--std-radius);
+  padding: 1rem 7rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: pointer;
+}
+
+.center--description {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.section__content--special {
+  margin-bottom: 3rem;
 }
