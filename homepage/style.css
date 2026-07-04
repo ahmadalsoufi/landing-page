@@ -3,9 +3,12 @@
   --secondary-clr: #ccbd77;
   --accent-clr: #a14752;
 
+  --primary-clr-light: #bcdfb9;
+
   --clr--dark: #222;
   --clr-light: #f7f7f7;
-  --text-clr: #3a4452;
+  --grayblue-clr: #3a4452;
+  --grayblue-clr-light: #a8b3bd;
 
   --h1-size: 39px;
   --h2-size: 33px;
@@ -16,8 +19,6 @@
 
   --std-radius: 1rem;
   --std-section-padding: 9rem 5rem 8rem 5rem;
-  --border-bottom-light: 1px solid rgb(213, 213, 213);
-  --border-bottom-dark: 1px solid rgb(44, 44, 44);
 }
 
 * {
@@ -28,7 +29,6 @@
 
 body {
   font-family: "Inter", sans-serif;
-  color: var(--text-clr);
 }
 
 h1 {
@@ -45,7 +45,6 @@ h4 {
 }
 
 a {
-  color: var(--text-clr);
   text-decoration: none;
 }
 
@@ -54,9 +53,27 @@ li {
 }
 
 /* 0. shared boxes */
-.section,
-.header {
-  border-bottom: var(--border-bottom-light);
+
+body,
+a {
+  color: var(--grayblue-clr);
+}
+
+.icon,
+.title,
+.logo,
+.logo__icon {
+  color: var(--accent-clr);
+}
+
+.section__title,
+.btn {
+  color: var(--primary-clr);
+}
+
+.nav__item:last-child,
+.contact__btn {
+  background-color: var(--primary-clr);
 }
 
 .section {
@@ -76,8 +93,6 @@ li {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 2px;
-
-  color: var(--primary-clr);
 }
 
 .section__description {
@@ -105,17 +120,13 @@ li {
 .nav__list {
   display: flex;
 }
-.nav__link {
+.nav__link,
+.btn {
   display: flex;
   align-items: center;
 }
 
-.nav__item:last-child {
-  background-color: var(--primary-clr);
-}
-
 .logo {
-  color: var(--secondary-clr);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -123,10 +134,6 @@ li {
   font-size: var(--h3-size);
   letter-spacing: 2px;
   font-weight: 600;
-}
-
-.logo__icon {
-  color: var(--secondary-clr);
 }
 
 .logo,
@@ -149,6 +156,8 @@ li {
 /* 2. header -> hero */
 
 .hero {
+  background-color: rgb(230, 233, 237);
+
   min-height: 100vh;
 
   display: flex;
@@ -190,10 +199,19 @@ li {
 .hero__read-more {
   font-size: var(--p-size);
   text-decoration: underline;
-  color: var(--primary-clr);
+  color: var(--accent-clr);
 }
 
 /* 3. services */
+
+#section--1 {
+  background-color: var(--grayblue-clr);
+  color: var(--clr-light);
+}
+
+#section--1 .section__title {
+  color: var(--primary-clr-light);
+}
 
 .services {
   display: grid;
@@ -214,7 +232,6 @@ li {
 }
 
 .icon {
-  color: var(--accent-clr);
   margin-bottom: 10px;
   font-size: var(--h3-size);
   position: relative;
@@ -232,6 +249,10 @@ li {
 }
 
 /* 4. qualification */
+
+#section--3 {
+  background-color: rgb(218, 218, 244);
+}
 
 .qualification {
   justify-self: center;
@@ -273,13 +294,14 @@ li {
 .numbers {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .numbers__item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 800px;
 }
 
 .numbers__count {
@@ -313,7 +335,6 @@ li {
 }
 
 .contact__btn {
-  background-color: var(--primary-clr);
   color: var(--clr-light);
   font-size: var(--h3-size);
   font-weight: 500;
@@ -336,7 +357,7 @@ li {
 /* 7. footer  */
 
 .footer {
-  background-color: var(--text-clr);
+  background-color: var(--grayblue-clr);
   padding: 7rem 3rem 5rem 3rem;
 }
 
@@ -366,7 +387,7 @@ li {
 
 .copyright {
   text-align: center;
-  color: rgb(199, 199, 199);
+  color: var(--grayblue-clr-light);
   font-size: var(--small-p-size);
 }
 
