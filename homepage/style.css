@@ -1,15 +1,19 @@
 :root {
+  /* coloring system */
   --primary-clr: #485b46;
   --secondary-clr: #ccbd77;
   --accent-clr: #a14752;
+  --blue-clr: #496da3;
 
   --primary-clr-light: #bcdfb9;
+  --grayblue-clr-light: #a8b3bd;
 
   --clr--dark: #222;
   --clr-light: #f7f7f7;
   --grayblue-clr: #3a4452;
-  --grayblue-clr-light: #a8b3bd;
 
+  /* pixels system */
+  --large-size: 47px;
   --h1-size: 39px;
   --h2-size: 33px;
   --h3-size: 27px;
@@ -17,6 +21,7 @@
   --p-size: 19px;
   --small-p-size: 16px;
 
+  /* additional */
   --std-radius: 1rem;
   --std-section-padding: 9rem 5rem 8rem 5rem;
 }
@@ -170,6 +175,20 @@ a {
 
 .hero__content {
   max-width: 800px;
+  border-left: 5px solid var(--blue-clr);
+  padding-left: 4rem;
+  padding-bottom: 4rem;
+}
+
+.hero__content::before {
+  content: "LOREM";
+
+  font-size: 8rem;
+  color: var(--accent-clr);
+
+  position: relative;
+  top: 0;
+  left: -2rem;
 }
 
 .hero__title {
@@ -307,6 +326,7 @@ a {
 .numbers__count {
   font-weight: 400;
   margin-bottom: 10px;
+  font-size: var(--large-size);
 }
 
 .numbers__title {
