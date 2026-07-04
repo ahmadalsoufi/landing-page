@@ -1,7 +1,7 @@
 :root {
   --primary-clr: #485b46;
   --secondary-clr: #ccbd77;
-  /* ---clr: #a14752; */
+  --accent-clr: #a14752;
 
   --clr--dark: #222;
   --clr-light: #f7f7f7;
@@ -47,6 +47,10 @@ h4 {
 a {
   color: var(--text-clr);
   text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
 
 /* 0. shared boxes */
@@ -122,7 +126,7 @@ a {
 }
 
 .logo__icon {
-  color: var(--primary-clr);
+  color: var(--secondary-clr);
 }
 
 .logo,
@@ -210,7 +214,7 @@ a {
 }
 
 .icon {
-  color: var(--secondary-clr);
+  color: var(--accent-clr);
   margin-bottom: 10px;
   font-size: var(--h3-size);
   position: relative;
@@ -252,7 +256,7 @@ a {
 }
 
 .qualification__title {
-  color: var(--secondary-clr);
+  color: var(--accent-clr);
   font-size: var(--h2-size);
   font-weight: 600;
 
@@ -284,7 +288,7 @@ a {
 }
 
 .numbers__title {
-  color: var(--secondary-clr);
+  color: var(--accent-clr);
   margin-bottom: 1rem;
   font-size: var(--h2-size);
   font-weight: 500;
@@ -298,6 +302,10 @@ a {
 
 /* 6. contact  */
 
+#section--4 {
+  background-color: #e9ecf2;
+}
+
 .contact {
   width: 100%;
   display: flex;
@@ -307,11 +315,11 @@ a {
 .contact__btn {
   background-color: var(--primary-clr);
   color: var(--clr-light);
-  font-size: var(--h2-size);
+  font-size: var(--h3-size);
   font-weight: 500;
   border: 0;
   border-radius: var(--std-radius);
-  padding: 1rem 7rem;
+  padding: 1rem 6rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   cursor: pointer;
 }
@@ -323,4 +331,48 @@ a {
 
 .section__content--special {
   margin-bottom: 3rem;
+}
+
+/* 7. footer  */
+
+.footer {
+  background-color: var(--text-clr);
+  padding: 7rem 3rem 5rem 3rem;
+}
+
+.footer__items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-item:last-child {
+  margin-right: 0;
+}
+
+.footer__link {
+  color: var(--clr-light);
+  font-size: var(--p-size);
+  font-weight: 500;
+}
+
+.copyright {
+  text-align: center;
+  color: rgb(199, 199, 199);
+  font-size: var(--small-p-size);
+}
+
+.author {
+  color: var(--clr-light);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  font-weight: 500;
 }
