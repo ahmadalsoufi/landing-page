@@ -28,7 +28,33 @@ const viewUponScrolling = function () {
 };
 
 ///////////////////////////////////////////////////////////////
+// 2. sticky navbar when reaching a point
+///////////////////////////////////////////////////////////////
+const stickyNav = function () {
+  const stickyCallback = function (entries, observer) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        nav.classList.add("nav--sticky");
+        return;
+      }
+      console.log(entries);
+
+      nav.classList.remove("nav--sticky");
+    });
+  };
+
+  const stickyObj = {
+    root: null,
+    threshold: 0,
+    rootMargin: `-${nav.getBoundingClientRect().height}px`,
+  };
+  const stickyObserver = new IntersectionObserver(stickyCallback, stickyObj);
+  stickyObserver.observe(header);
+};
+
+///////////////////////////////////////////////////////////////
 // --- application of features
 ///////////////////////////////////////////////////////////////
 
 viewUponScrolling();
+stickyNav();
