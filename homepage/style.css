@@ -1,6 +1,6 @@
 :root {
-  --primary-clr: #4c9465;
-  --secondary-clr: #e3dbb6;
+  --primary-clr: #2c9068;
+  --secondary-clr: #447bc4;
 
   --clr--dark: #222;
   --clr-light: #f7f7f7;
@@ -209,7 +209,7 @@ a {
 }
 
 .icon {
-  color: var(--primary-clr);
+  color: var(--secondary-clr);
   margin-bottom: 10px;
   font-size: var(--h3-size);
   position: relative;
@@ -251,7 +251,7 @@ a {
 }
 
 .qualification__title {
-  color: crimson;
+  color: var(--secondary-clr);
   font-size: var(--h2-size);
   font-weight: 600;
 
@@ -265,7 +265,7 @@ a {
 
 /* 5. numbers */
 
-/* .numbers {
+.numbers {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -283,7 +283,7 @@ a {
 }
 
 .numbers__title {
-  color: crimson;
+  color: var(--secondary-clr);
   margin-bottom: 1rem;
   font-size: var(--h2-size);
   font-weight: 500;
@@ -293,4 +293,4 @@ a {
   text-align: center;
   font-size: var(--p-size);
   line-height: 1.5;
-} */
+}
