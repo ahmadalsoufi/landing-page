@@ -1,13 +1,16 @@
 "use strict";
 
-const sections = document.querySelectorAll(".section__push--down");
+const sections = document.querySelectorAll(".section");
 const nav = document.querySelector(".nav");
 const header = document.querySelector(".header");
 
 ///////////////////////////////////////////////////////////////
 // 1. view sections upon scrolling
 ///////////////////////////////////////////////////////////////
+
 const viewUponScrolling = function () {
+  sections.forEach((section) => section.classList.add("section__push--down"));
+
   const scrollCallback = function (entries, observer) {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -20,7 +23,7 @@ const viewUponScrolling = function () {
   const scrollObj = {
     root: null,
     threshold: 0,
-    rootMargin: "-50px",
+    rootMargin: "-30px",
   };
 
   const scrollObserver = new IntersectionObserver(scrollCallback, scrollObj);
@@ -99,7 +102,11 @@ const dynamicCount = function () {
 ///////////////////////////////////////////////////////////////
 
 const lazyLoading = function () {
-  const lazyImgs = document.querySelectorAll(".lazy");
+  const lazyImgs = document.querySelectorAll(".img");
+
+  lazyImgs.forEach((img) => {
+    img.classList.add("lazy");
+  });
 
   const lazyCallback = function (entries, observer) {
     entries.forEach((entry) => {
@@ -127,9 +134,31 @@ const lazyLoading = function () {
 ///////////////////////////////////////////////////////////////
 
 const dropdownNav = function () {
+  // replace default scroll for links with a directed scroll.
+  document.querySelectorAll(".link").forEach((link) =>
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const clicked = e.target.closest(".link").getAttribute("href");
+      if (clicked.includes("#") && clicked.length > 1)
+        document
+          .querySelector(`${clicked}`)
+          .scrollIntoView({ behavior: "smooth" });
+    }),
+  );
+
   const navItems = document.querySelectorAll(".nav__item");
+  const navLinks = document.querySelectorAll(".nav__link");
+
+  navLinks.forEach((link) => {
+    link.href = "#";
+  });
 
   navItems.forEach((btn) => {
+    btn.children[0].innerHTML =
+      btn.children[0].textContent +
+      `<span class="nav__drop-down"><i class="fa-solid fa-angle-down"></i></span>`;
+
     btn.addEventListener("mouseenter", function (e) {
       e.target.children[1].style.display = "block";
     });
