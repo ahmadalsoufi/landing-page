@@ -119,6 +119,13 @@ img {
 
 /* 1. header -> nav */
 
+.nav--wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -126,8 +133,7 @@ img {
   padding: 0 10rem;
   background-color: #252525;
 
-  position: absolute;
-  top: 0;
+  position: relative;
   right: 0;
   left: 0;
 }
@@ -135,6 +141,9 @@ img {
 .nav--sticky {
   position: fixed;
   z-index: 1;
+  right: 0;
+  left: 0;
+
   background-color: var(light);
   color: var(--grayblue-clr);
 }
@@ -166,7 +175,7 @@ img {
   align-items: center;
 }
 
-.nav__item a {
+.nav__item {
   height: 100%;
   padding: 0 30px;
 }
@@ -175,12 +184,73 @@ img {
   color: var(--clr-light);
 }
 
+/* 1. nav -> dropdown */
+
+.nav__item {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  /* padding: 2rem 3rem; */
+
+  /* height: 300px;
+  width: 200px; */
+
+  border-bottom-left-radius: var(--std-radius);
+  border-bottom-right-radius: var(--std-radius);
+  box-shadow: var(--std-shadow);
+}
+
+.dropdown__list {
+  /* padding: 1rem 2rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: 1s;
+}
+
+.dropdown__item {
+  height: 40px;
+  width: 350px;
+
+  transition: 1s;
+}
+
+.dropdown__link {
+  font-size: var(--small-p-size);
+
+  padding: 0 2rem;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--clr-light);
+}
+
+.dropdown--contact {
+  display: none;
+  background-color: var(--blue-clr);
+}
+
+.dropdown--about {
+  /* display: none; */
+  background-color: var(--blue-clr);
+}
+
 /* 2. header -> hero */
 
 .hero {
-  background-color: rgb(230, 233, 237);
-
   min-height: 100vh;
+
+  background-color: rgb(230, 233, 237);
 
   display: flex;
   justify-content: center;
@@ -192,7 +262,7 @@ img {
 
 .hero__content {
   max-width: 800px;
-  border-left: 5px solid var(--blue-clr);
+  border-left: 5px solid var(--blue-clr-light);
   padding-left: 4rem;
   padding-bottom: 4rem;
 }
