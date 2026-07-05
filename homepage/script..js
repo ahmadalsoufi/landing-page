@@ -123,6 +123,24 @@ const lazyLoading = function () {
 };
 
 ///////////////////////////////////////////////////////////////
+// 4. dropdown
+///////////////////////////////////////////////////////////////
+
+const dropdownNav = function () {
+  const navItems = document.querySelectorAll(".nav__item");
+
+  navItems.forEach((btn) => {
+    btn.addEventListener("mouseenter", function (e) {
+      e.target.children[1].style.display = "block";
+    });
+
+    btn.addEventListener("mouseleave", function (e) {
+      e.target.children[1].style.display = "none";
+    });
+  });
+};
+
+///////////////////////////////////////////////////////////////
 // --- application of features
 ///////////////////////////////////////////////////////////////
 
@@ -130,3 +148,4 @@ viewUponScrolling();
 stickyNav();
 dynamicCount();
 lazyLoading();
+dropdownNav();
