@@ -170,6 +170,82 @@ const dropdownNav = function () {
 };
 
 ///////////////////////////////////////////////////////////////
+// 5. slider
+///////////////////////////////////////////////////////////////
+
+const slider = function () {
+  const featuredHtml = `<div class="qualification__wrapper">
+          <div class="qualification qualification--slider">
+            <div class="qualification__btns">
+              <button class="qualification--slider-btn clicked--slide" data-btn="1">one</button>
+              <button class="qualification--slider-btn" data-btn="2">
+                two
+              </button>
+              <button class="qualification--slider-btn" data-btn="3">three</button>
+            </div>
+
+            <div class="qualification__item qualification--slide " data-num="1">
+              <h4 class="title qualification__title" >1. Lorem, ipsum dolor.</h4>
+              <p class="qualification__description slide--description">
+                Text to be inserted.
+              </p>
+            </div>
+
+            <div class="qualification__item qualification--slide hidden" data-num="2">
+              <h4 class="title qualification__title">2. Lorem, ipsum dolor.</h4>
+              <p class="qualification__description slide--description">
+                Text to be inserted.
+              </p>
+            </div>
+
+            <div class="qualification__item qualification--slide hidden" data-num="3">
+              <h4 class="title qualification__title">3. Lorem, ipsum dolor.</h4>
+              <p class="qualification__description slide--description">
+                Text to be inserted.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>`;
+
+  const qualification = document.querySelector(".qualification");
+  qualification.outerHTML = featuredHtml;
+  // handling btns
+
+  const sliderBtns = document.querySelectorAll(".qualification--slider-btn");
+  const slides = document.querySelectorAll(".qualification--slide");
+
+  sliderBtns.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      // clean hard coded texts
+      sliderBtns.forEach((btn) => {
+        btn.classList.remove("clicked--slide");
+      });
+
+      slides.forEach((slide) => {
+        slide.classList.add("hidden");
+      });
+
+      // add texts dynamically
+      const clicked = e.target.dataset.btn;
+
+      sliderBtns.forEach((btn) => {
+        if (btn.dataset.btn === clicked) {
+          btn.classList.add("clicked--slide");
+        }
+      });
+
+      slides.forEach((slide) => {
+        if (slide.dataset.num === clicked) {
+          slide.classList.remove("hidden");
+        }
+      });
+    });
+  });
+};
+//
+
+///////////////////////////////////////////////////////////////
 // --- application of features
 ///////////////////////////////////////////////////////////////
 
@@ -178,3 +254,4 @@ stickyNav();
 dynamicCount();
 lazyLoading();
 dropdownNav();
+slider();
