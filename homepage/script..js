@@ -150,6 +150,7 @@ const dropdownNav = function () {
   const navItems = document.querySelectorAll(".nav__item");
   const navLinks = document.querySelectorAll(".nav__link");
 
+  let isDropdownCollapsed = true;
   navLinks.forEach((link) => {
     link.href = "#";
   });
@@ -165,6 +166,12 @@ const dropdownNav = function () {
 
     btn.addEventListener("mouseleave", function (e) {
       e.target.children[1].style.display = "none";
+    });
+
+    btn.addEventListener("click", function (e) {
+      isDropdownCollapsed = !isDropdownCollapsed;
+      e.target.closest(".nav__item").children[1].style.display =
+        isDropdownCollapsed ? "none" : "block";
     });
   });
 };
